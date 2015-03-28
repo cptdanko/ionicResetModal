@@ -27,13 +27,6 @@ angular.module('starter.controllers', [])
 })
 .controller('ChatsResetModalCtrl', function($scope, Chats,$ionicModal) {
 $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  }
-	var modalOptions = {scope:$scope, animation: 'slide-in-up'};
-	$ionicModal.fromTemplateUrl('templates/availability.html', modalOptions).then(function(dialog) {
-  		$scope.testModal = dialog;
-  	});
   var obj1 = {name:"Monday", id:1},
       obj2 = {name:"Tuesday", id:2},
       obj3 = {name:"Wednesday", id:3},
@@ -45,14 +38,11 @@ $scope.chats = Chats.all();
   	$scope.testModal.remove();
   }
   $scope.openModal = function(item) {
-  	if(!$scope.testModal._isShown) {
-  		$ionicModal.fromTemplateUrl('templates/availability.html', modalOptions).then(function(dialog) {
-  			$scope.testModal = dialog;
-  			$scope.testModal.show();
-  		});
-  	} else {
-  		$scope.testModal.show();
-  	}
+    var modalOptions = {scope:$scope, animation: 'slide-in-up'};
+		$ionicModal.fromTemplateUrl('templates/availability.html', modalOptions).then(function(dialog) {
+			$scope.testModal = dialog;
+			$scope.testModal.show();
+		});
   }
 })
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
