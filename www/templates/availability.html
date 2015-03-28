@@ -1,0 +1,25 @@
+<div class="modal">
+	<div class="bar bar-header bar-calm">
+        <button class="button" ng-click="closeModal()">back</button>
+        <h1 class="title">Contact availability</h1>
+    </div>
+    <div class="list" id="weekDays" style="margin-top:50px;">
+    	<label class="item item-radio" ng-repeat="day in days">
+        <span ng-if="day.selected">
+           <input type="checkbox" id="{{day.id}}" checked>
+           <div class="item-content">
+                {{day.name}}
+            </div>
+            <i class="radio-icon ion-checkmark"></i>
+        </span>
+        <span ng-if="!day.selected">
+           <input type="checkbox" id="{{day.id}}">
+           <div class="item-content">
+                {{day.name}}
+            </div>
+            <i class="radio-icon ion-checkmark"></i>
+        </span>
+        
+    </label>
+    </div>
+</div>

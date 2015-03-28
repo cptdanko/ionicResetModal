@@ -8,7 +8,7 @@ angular.module('starter.controllers', [])
     Chats.remove(chat);
   }
   var modalOptions = {scope:$scope, animation: 'slide-in-up'};
-    $ionicModal.fromTemplateUrl('templates/testModal.html', modalOptions).then(function(dialog) {
+    $ionicModal.fromTemplateUrl('templates/availability.html', modalOptions).then(function(dialog) {
       $scope.testModal = dialog;
   });
   var obj1 = {name:"Monday", id:1},
@@ -17,7 +17,7 @@ angular.module('starter.controllers', [])
       obj4 = {name:"Thursday", id:4},
       obj5 = {name:"Friday", id:5};
   
-  $scope.testItems = [obj1,obj2,obj3,obj4,obj5];
+  $scope.days = [obj1,obj2,obj3,obj4,obj5];
   $scope.closeModal = function(){
   	$scope.testModal.hide();
   }
@@ -31,7 +31,7 @@ $scope.chats = Chats.all();
     Chats.remove(chat);
   }
 	var modalOptions = {scope:$scope, animation: 'slide-in-up'};
-	$ionicModal.fromTemplateUrl('templates/testModal.html', modalOptions).then(function(dialog) {
+	$ionicModal.fromTemplateUrl('templates/availability.html', modalOptions).then(function(dialog) {
   		$scope.testModal = dialog;
   	});
   var obj1 = {name:"Monday", id:1},
@@ -40,22 +40,20 @@ $scope.chats = Chats.all();
       obj4 = {name:"Thursday", id:4},
       obj5 = {name:"Friday", id:5};
   
-  $scope.testItems = [obj1,obj2,obj3,obj4,obj5];
+  $scope.days = [obj1,obj2,obj3,obj4,obj5];
   $scope.closeModal = function(){
   	$scope.testModal.remove();
   }
   $scope.openModal = function(item) {
   	if(!$scope.testModal._isShown) {
-  		$ionicModal.fromTemplateUrl('templates/testModal.html', modalOptions).then(function(dialog) {
+  		$ionicModal.fromTemplateUrl('templates/availability.html', modalOptions).then(function(dialog) {
   			$scope.testModal = dialog;
   			$scope.testModal.show();
   		});
   	} else {
   		$scope.testModal.show();
   	}
-  	
   }
-
 })
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
   $scope.chat = Chats.get($stateParams.chatId);
